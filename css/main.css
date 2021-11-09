@@ -1,0 +1,254 @@
+:root{
+    --main:#112;
+    --sub: #555;
+    --light:#AAE;
+    --def:#fd8ecb33;
+    --deftext:#e29fc4;
+    --th:#a0a0eb3f;
+    --thtext:#c6c6fd;
+    --prob:mistyrose;
+    --algo:lavender;
+    --text:#ccc;
+    --light_text:#444;
+    --white_text:#ffffff;
+    --bg0:transparent;
+    --bg1:#cccccc70;
+    --bg2:#123;
+}
+
+body {
+    text-align: justify;
+    letter-spacing: normal;
+    word-wrap: break-word;
+    background: var(--main);
+    background-attachment: fixed;
+    font-style: normal;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text);
+}
+
+div.flexbox {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 900px) and (max-height: 741px) {
+    div.flexbox {
+        flex-direction: row-reverse;
+    }
+    #floatmenu {
+        display:none;
+    }
+    main.honbun{
+        margin: 5px 10px;
+        padding: 2em 4em;
+    }
+}
+
+
+main.honbun {
+    flex: 0 1 80%;
+    margin: 1px;
+    padding: 10px;
+    line-height: 150%;
+}
+
+/* 定義定理証明問題アルゴリズムのスタイル */
+div.def {
+    color: var(--deftext);
+    background-color: var(--def);
+    margin: 5px auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+div.th {
+    color: var(--thtext);
+    background-color: var(--th);
+    margin-top: 5px;
+    padding: 10px;
+}
+
+details.proof {
+    margin: 5px;
+    padding: 5px;
+    border: solid 3px var(--th);
+    border-radius: 5px;
+}
+
+div.prob {
+    margin: 5px 50px auto;
+    padding: 10px;
+    border: solid 1px var(--deftext);
+    border-radius: 5px;
+}
+
+div.algo {
+    margin-top: 5px;
+    padding: 10px;
+    border: solid 1px var(--thtext);
+}
+
+h4.header {
+    margin: 4px;
+    font-size: 90%;
+}
+
+/* 前へ次へボタン */
+
+#prevnext {
+    display: flex;
+    width: 50%;
+    padding: 10px;
+    margin: auto;
+}
+
+#prevnext a {
+    flex: 1;
+    padding: 14px 40px;
+    margin: 10px;
+    background-color: var(--bg1);
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+
+#floatmenu {
+    z-index: 1;
+    float: right;
+    position: fixed;
+    background-color: #ffffff32;
+}
+
+/* サイドバーのスタイル*/
+#sidebar {
+    flex: 0 0 20%;
+}
+
+/*移動しないサイドバー=localsidebarブロック*/
+#localsidebar {
+    margin: 5px 10px;
+    padding: 10px;
+    background-color: var(--bg2);
+    border-left: solid 1px var(--light);
+}
+
+#localsidebar details{
+    flex-direction: column;
+    display: flex;
+}
+
+#localsidebar details a {
+    margin: 5px;
+    padding: 5px;
+}
+
+/*追従するサイドバー=indexブロック*/
+ #index {
+    top: 10px;
+    position: sticky;
+    margin: 10px 10px;
+    padding: 10px;
+    border-right: solid 1px var(--light);
+    display: flex;
+    flex-direction: column;
+ }
+
+ #index a {
+    font-size: 95%;
+    padding: 5px;
+    text-align: right;
+ }
+
+ #index a[class^="subindex"]{
+    font-size: 80%;
+    padding-right: 10px;
+}
+
+
+/*honbunブロック中で中央揃えにしたいときに使うブロック*/
+div.center {
+    display: flex; /* 子要素をflexboxで揃える */
+    flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
+    justify-content: center; /* 子要素をflexboxにより中央に配置する */
+    align-items: center;  /* 子要素をflexboxにより中央に配置する */   
+}
+
+/*タグリスト*/
+div.taglist {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+ }
+  div.taglist a {
+      color: lightblue;
+      padding: 5px;
+      margin: 0 3px;
+      text-indent: 0;
+      background-color: var(--sub);
+      border-radius: 5px;
+      display: inline-block;
+  }
+
+/* 更新日の表示 */
+div#date {
+    margin: 0;
+    padding: 0;
+    font-size: 70%;
+    text-align: right;
+}
+
+/*非表示にするブロック*/
+div.displaynone{
+    display:none;
+}
+
+/*その他の装飾要素*/
+
+a {
+    color: #9cd4f7;
+    text-decoration: none;
+}
+
+li {
+    padding: 15px 0;
+}
+
+.honbun p{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.honbun h1{
+    color: var(--white_text);
+    line-height: 1.5;
+}
+.honbun h2{
+    color: var(--white_text);
+    border-bottom: solid 1px var(--bg1);
+    margin: 10px;
+    padding: 10px;
+}
+.honbun h3{
+    padding: 10px 10px 10px 0px;
+    margin-left: 5px;
+}
+
+table , td, th {
+	border: 1px solid;
+	border-collapse: collapse;
+}
+
+@media print{
+    #sidebar{
+        display:none
+    }
+    #floatmenu{
+        display:none
+    }
+    #prevnext{
+        display:none
+    }
+}
